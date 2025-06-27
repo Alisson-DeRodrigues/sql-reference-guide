@@ -1,6 +1,6 @@
 # 🧭 Guia de Referência SQL para PostgreSQL
 
-Este repositório contém um guia de referência SQL utilizando o SGDB PostgreSQL. A essência de um guia de referência é servir de material de consulta para aqueles que possuem noção do que já pretendem buscar aqui, mas este material poderá servir como material de estudo.
+Este repositório contém um guia de referência SQL utilizando o SGDB PostgreSQL. A essência de um guia de referência é servir de material de consulta para aqueles que possuem noção do que já pretendem buscar aqui, mas este material também servirá como material de estudo.
 
 O repositório também contém alguns exemplos de projetos que foram criados como requisito para obter a certificação do curso [Relational Database](https://www.freecodecamp.org/learn/relational-database/) da Freecodecamp. Curso que reúne PostgreSQL, GNU Bash e Git.
 
