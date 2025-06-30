@@ -3,6 +3,12 @@
 Este repositório contém um guia de referência SQL utilizando o SGDB PostgreSQL. A essência de um guia de referência é servir de material de consulta para aqueles que possuem noção do que já pretendem buscar aqui, mas este material também servirá como material de estudo.
 
 O repositório também contém alguns exemplos de projetos que foram criados como requisito para obter a certificação do curso [Relational Database](https://www.freecodecamp.org/learn/relational-database/) da Freecodecamp. Curso que reúne PostgreSQL, GNU Bash e Git.
+* [Celestial Bodies Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Celestial%20Bodies%20Database)
+* [World Cup Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/World%20Cup%20Database)
+* [Salon Appointment Scheduler](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Salon%20Appointment%20Scheduler)
+* [Periodic Table Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Periodic%20Table%20Database)
+* [Number Guessing Game](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Number%20Guessing%20Game)
+
 
 ## 📦 PostgreSQL – Guia de Comandos
 
