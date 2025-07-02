@@ -3,41 +3,66 @@
 Este repositório contém um guia de referência SQL utilizando o SGDB PostgreSQL. A essência de um guia de referência é servir de material de consulta para aqueles que possuem noção do que já pretendem buscar aqui, mas este material também servirá como material de estudo.
 
 O repositório também contém alguns exemplos de projetos que foram criados como requisito para obter a certificação do curso [Relational Database](https://www.freecodecamp.org/learn/relational-database/) da Freecodecamp. Curso que reúne PostgreSQL, GNU Bash e Git.
-* [Celestial Bodies Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Celestial%20Bodies%20Database)
-* [World Cup Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/World%20Cup%20Database)
-* [Salon Appointment Scheduler](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Salon%20Appointment%20Scheduler)
-* [Periodic Table Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Periodic%20Table%20Database)
-* [Number Guessing Game](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Number%20Guessing%20Game)
-
+- [Celestial Bodies Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Celestial%20Bodies%20Database)
+- [World Cup Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/World%20Cup%20Database)
+- [Salon Appointment Scheduler](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Salon%20Appointment%20Scheduler)
+- [Periodic Table Database](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Periodic%20Table%20Database)
+- [Number Guessing Game](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Number%20Guessing%20Game)
 
 ## 📦 PostgreSQL – Guia de Comandos
-
-### 🔓 Acessando o PostgreSQL
-
+### 🔓 Acessando o PostgreSQL:
 ```bash
-# iniciar o postgresql no terminal
-psql --username=freecodecamp --dbname=postgres
+psql --username=usuario --dbname=postgres
 ```
+Inicia o postgresql no terminal.
 
-* Listar bancos de dados: `\l`
-* Conectar a um banco de dados: `\c database_name`
-* Listar tabelas: `\d`
-* Info da tabela: `\d table_name`
+### 💻 Comandos do PostgreSQL:
+- Listar bancos de dados: `\l`
+- Conectar a um banco de dados: `\c database_name`
+- Listar tabelas: `\d`
+- Info da tabela: `\d table_name`
+
+### ⌨️ Manipular o banco de dados via bash:
+```bash
+PSQL="psql -X --username=usuario --dbname=banco_dados --no-align --tuples-only -c"
+```
+- variável que define o comando que permite o bash se conectar ao banco de dados, executar um comando simples e depois sair
+- as palavras-chave username, dbname e -c são as mais importantes, o resto é formatação para como o bash recebe os dados em texto do banco de dados
+- -c serve para executar um comando simples e depois sair do banco de dados
+- representação lógica no db: psql --username=usuario --dbname=banco_dados -c "SQL QUERY HERE"
+
+**Exemplo de uso:**
+```bash
+MAJOR_ID=$($PSQL "select major_id from MAJORS where major='$MAJOR'")
+```
+A query SQL dentro de aspas duplas é o mesmo comando que se faria dentro do banco de dados.
+
+### 💾 Fazer backup do banco de dados para um arquivo:
+```bash
+pg_dump --clean --create --inserts --username=usuario banco_dados > meu_banco_de_dados.sql
+```
+Salva o banco de dados em um arquivo.
+
+### 💽 Importar banco de dados para o PostgreSQL:
+```bash
+psql -U postgres < students.sql
+```
+Faz um rebuild de um banco de dados para o postgres.
 
 ---
 
 ## 🗃️ Comandos de Banco de Dados
-### 🆕 Criar um banco de dados
+### 🆕 Criar um banco de dados:
 ```sql
 CREATE DATABASE database_name;
 ```
 
-### 🧽 Deletar (drop) banco de dados
+### 🧽 Deletar (drop) banco de dados:
 ```sql
 DROP DATABASE database_name;
 ```
 
-### ✏️ Renomear banco de dados
+### ✏️ Renomear banco de dados:
 ```sql
 ALTER DATABASE database_name RENAME TO new_name;
 ```
@@ -45,12 +70,12 @@ ALTER DATABASE database_name RENAME TO new_name;
 ---
 
 ## 🧱 Comandos de Tabela
-### 🆕 Criar tabela
+### 🆕 Criar tabela:
 ```sql
 CREATE TABLE table_name();
 ```
 
-### 🆕 Criar tabela com coluna na mesma query
+### 🆕 Criar tabela com coluna na mesma query:
 ```sql
 CREATE TABLE table_name(column_name1 DATATYPE <CONSTRAINTS>, column_name2 DATATYPE <CONSTRAINTS>);
 ```
@@ -60,22 +85,22 @@ CREATE TABLE table_name(column_name1 DATATYPE <CONSTRAINTS>, column_name2 DATATY
 CREATE TABLE sounds(sound_id SERIAL PRIMARY KEY);
 ```
 
-### 🧽 Deletar (drop) tabela
+### 🧽 Deletar (drop) tabela:
 ```sql
 DROP TABLE table_name;
 ```
 
-### 🧽 Deletar (drop) constraint da tabela
+### 🧽 Deletar (drop) constraint da tabela:
 ```sql
 ALTER TABLE table_name DROP CONSTRAINT constraint_name;
 ```
 
-### ✏️ Renomear tabela
+### ✏️ Renomear tabela:
 ```sql
 ALTER TABLE table_name RENAME TO new_name;
 ```
 
-### 🧽 Apagar todas as linhas de tabelas
+### 🧽 Apagar todas as linhas de tabelas:
 ```sql
 TRUNCATE table_1, table_2;
 ```
@@ -83,9 +108,7 @@ TRUNCATE table_1, table_2;
 ---
 
 ## 🗼 Comandos de Coluna
-
-### 🆕 Adicionar Coluna (básico)
-
+### 🆕 Adicionar Coluna (básico):
 ```sql
 ALTER TABLE table_name ADD COLUMN column_name DATATYPE <CONSTRAINT> <DEFAULT>;
 ```
@@ -763,7 +786,7 @@ SELECT course FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_co
 
 ---
 
-## ⏰ Funções de Tempo
+## ⏰ Funções do PostgreSQL
 
 ```sql
 NOW();
