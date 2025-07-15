@@ -64,6 +64,11 @@ pg_dump --clean --create --inserts --username=usuario banco_dados > meu_banco_de
 ```
 Salva o banco de dados em um arquivo.
 
+**Formato para copiar e colar no editor sql do neon:**
+```bash
+pg_dump --no-owner --no-privileges --clean --if-exists --username=usuario --host=localhost --port=5432 --encoding=UTF8 --format=plain --section=pre-data --section=data --section=post-data --file=meu_dump.sql nome_banco_dados
+```
+
 ### 💽 Importar banco de dados para o PostgreSQL:
 ```bash
 psql -U postgres < students.sql
