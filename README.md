@@ -10,11 +10,32 @@ O repositório também contém alguns exemplos de projetos que foram criados com
 - [Number Guessing Game](https://github.com/Alisson-DeRodrigues/sql-reference-guide/tree/main/Projetos/Number%20Guessing%20Game)
 
 ## 📦 PostgreSQL – Guia de Comandos
-### 🔓 Acessando o PostgreSQL:
+### 🚪 Acessando o Terminal Interativo (PSQL):
+```bash
+psql -U postgres
+```
+Acesso com o usuário padrão postgres, a senha que será solicitada é a definida por você durante a instalação ou estará em branco.
+
+O comando pode não ser reconhecido dependendo do sistema operacional e instalação, nesse caso, abra a pasta do programa e execute o programa psql diretamente. No Windows, por exemplo, a pasta padrão pode ser `C:\Program Files\PostgreSQL\X\bin`, execute o programa diretamente ou abra essa pasta no cmd com `cd C:\Program Files\PostgreSQL\X\bin` e execute o comando `psql -U postgres` novamente.
+
+**Definindo senha para o usuário postgres:**
+```bash
+ALTER USER postgres WITH PASSWORD 'sua_senha_forte';
+```
+Faça isso se você não definiu uma senha anteriormente.
+
+### Criando Usuários:
+```bash
+CREATE USER meuusuario WITH PASSWORD 'minhasenha';
+GRANT ALL PRIVILEGES ON DATABASE meuteste TO meuusuario;
+```
+É necessário estar logado com o usuário postgres na primeira vez que configurar o PostgreSQL.
+
+### 🔓 Acessando o PostgreSQL com Usuário Específico:
 ```bash
 psql --username=usuario --dbname=postgres
 ```
-Inicia o postgresql no terminal.
+Inicia o postgresql no terminal conectando-se a um usuário específico e a um banco de dados desse usuário.
 
 ### 💻 Comandos do PostgreSQL:
 - Listar bancos de dados: `\l`
