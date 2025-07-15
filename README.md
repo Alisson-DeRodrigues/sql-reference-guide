@@ -24,7 +24,7 @@ ALTER USER postgres WITH PASSWORD 'sua_senha_forte';
 ```
 Faça isso se você não definiu uma senha anteriormente.
 
-### Criando Usuários:
+### 🆕 Criando Usuários:
 ```bash
 CREATE USER meuusuario WITH PASSWORD 'minhasenha';
 GRANT ALL PRIVILEGES ON DATABASE meuteste TO meuusuario;
